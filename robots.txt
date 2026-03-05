@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Curious about vulnerabilities?
+# So are we.
+# We help organizations identify them before attackers do.
+
+Sitemap: https://penetrationtesting.ro/sitemap.xml
