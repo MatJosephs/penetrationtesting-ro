@@ -6,15 +6,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>NIS2 România | Testare de Penetrare și Audit de Securitate</title>
+<title>PenetrationTesting.ro | Implementare NIS2, Audit și Testare de Penetrare</title>
 
-<meta name="description" content="Servicii de testare de penetrare și evaluări de securitate cibernetică pentru organizații din România. Suport pentru conformitate NIS2, audit tehnic de securitate și evaluări de vulnerabilitate.">
+<meta name="description" content="Servicii profesionale de securitate cibernetică în România: implementare NIS2, audit de securitate, vCISO și testare de penetrare pentru organizații din sectoare esențiale și importante.">
 
-<meta name="keywords" content="NIS2 Romania, audit NIS2, testare de penetrare Romania, securitate cibernetica Romania, evaluare vulnerabilitati">
+<meta name="keywords" content="NIS2 Romania, implementare NIS2, audit NIS2 Romania, vCISO Romania, testare de penetrare Romania">
 
 <meta name="robots" content="index, follow">
 
 <style>
+
+/* GENERAL */
 
 html{
 scroll-behavior:smooth;
@@ -26,9 +28,10 @@ font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
 background:#0b0f14;
 color:#e6edf3;
 line-height:1.6;
+padding-top:48px;
 }
 
-/* NAVIGATION */
+/* NAV */
 
 nav{
 background:#11161d;
@@ -68,7 +71,7 @@ margin:auto;
 font-size:18px;
 }
 
-/* MAIN CONTAINER */
+/* CONTAINER */
 
 .container{
 max-width:1050px;
@@ -80,7 +83,7 @@ h2{
 color:#f5b301;
 }
 
-/* SERVICE GRID */
+/* SERVICES */
 
 .services{
 display:grid;
@@ -103,7 +106,7 @@ border-color:#f5b301;
 box-shadow:0 10px 30px rgba(0,0,0,0.4);
 }
 
-/* INFO BOX */
+/* INFO */
 
 .info{
 background:#151b23;
@@ -111,16 +114,6 @@ border-left:4px solid #f5b301;
 padding:20px;
 margin-top:25px;
 border-radius:6px;
-}
-
-/* LISTS */
-
-ul{
-padding-left:20px;
-}
-
-li{
-margin-bottom:8px;
 }
 
 /* CTA */
@@ -135,10 +128,18 @@ border:1px solid #222a33;
 }
 
 .email{
-color:#f5b301;
-font-weight:600;
+margin-top:15px;
 font-size:20px;
-margin-top:10px;
+}
+
+.email a{
+color:#f5b301;
+text-decoration:none;
+font-weight:600;
+}
+
+.email a:hover{
+text-decoration:underline;
 }
 
 /* FOOTER */
@@ -150,6 +151,94 @@ color:#9aa4af;
 font-size:14px;
 }
 
+/* ========================= */
+/* WORK IN PROGRESS BANNER */
+/* ========================= */
+
+#wip-banner{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+background:#151b23;
+border-bottom:2px solid #f5b301;
+z-index:9999;
+padding:10px 20px;
+display:flex;
+align-items:center;
+gap:15px;
+font-size:14px;
+overflow:hidden;
+}
+
+/* spinner */
+
+.wip-spinner{
+border:2px solid #1f2933;
+border-top:2px solid #f5b301;
+border-radius:50%;
+width:18px;
+height:18px;
+animation:spin 1s linear infinite;
+}
+
+@keyframes spin{
+0%{transform:rotate(0deg)}
+100%{transform:rotate(360deg)}
+}
+
+/* text */
+
+.wip-text{
+color:#9aa4af;
+}
+
+/* loading bar */
+
+.progress{
+position:absolute;
+bottom:0;
+left:0;
+width:100%;
+height:3px;
+background:#1f2933;
+}
+
+.progress-bar{
+height:100%;
+width:0%;
+background:#f5b301;
+animation:loading 6s infinite;
+}
+
+@keyframes loading{
+0%{width:0}
+100%{width:100%}
+}
+
+/* cyber scan line */
+
+.scanline{
+position:absolute;
+top:0;
+left:-100%;
+height:100%;
+width:100%;
+background:linear-gradient(
+90deg,
+transparent,
+rgba(245,179,1,0.25),
+transparent
+);
+animation:scan 6s linear infinite;
+pointer-events:none;
+}
+
+@keyframes scan{
+0%{left:-100%;}
+100%{left:100%;}
+}
+
 </style>
 
 
@@ -158,13 +247,14 @@ font-size:14px;
 "@context": "https://schema.org",
 "@type": "ProfessionalService",
 "name": "PenetrationTesting.ro",
-"description": "Servicii de testare de penetrare si evaluare a securitatii cibernetice pentru organizatii din Romania, inclusiv suport pentru conformitate NIS2.",
+"description": "Servicii de securitate cibernetică în România: implementare NIS2, audit de securitate, vCISO și testare de penetrare.",
 "areaServed": "Romania",
 "serviceType": [
+"Virtual CISO",
+"NIS2 Implementation",
+"NIS2 Security Audit",
 "Penetration Testing",
-"Cybersecurity Assessment",
-"Vulnerability Assessment",
-"NIS2 Security Evaluation"
+"Cybersecurity Assessment"
 ],
 "email": "contact@hivehack.tech"
 }
@@ -172,15 +262,32 @@ font-size:14px;
 
 </head>
 
-
 <body>
+
+
+<!-- WIP BANNER -->
+
+<div id="wip-banner">
+
+<div class="scanline"></div>
+
+<div class="wip-spinner"></div>
+
+<div class="wip-text">
+🚧 Lucrăm la dezvoltarea platformei <b>PenetrationTesting.ro</b>. Aceasta este o versiune teaser. În curând vom lansa servicii complete pentru implementare NIS2, audit de securitate, vCISO și testare de penetrare.
+</div>
+
+<div class="progress">
+<div class="progress-bar"></div>
+</div>
+
+</div>
 
 
 <nav>
 
 <a href="#nis2">NIS2</a>
 <a href="#services">Servicii</a>
-<a href="#faq">FAQ</a>
 <a href="#contact">Contact</a>
 
 </nav>
@@ -191,12 +298,9 @@ font-size:14px;
 <h1>PenetrationTesting.ro</h1>
 
 <p>
-Servicii profesionale de testare de penetrare și evaluare a securității cibernetice pentru organizațiile din România care trebuie să își consolideze reziliența digitală și să respecte cerințele NIS2.
+Servicii profesionale de securitate cibernetică pentru organizațiile din România: implementare NIS2, audit de securitate, vCISO și testare de penetrare.
 </p>
 
-<p style="margin-top:15px;color:#9aa4af;font-size:14px">
-Operated by HiveHack cybersecurity specialists
-</p>
 
 </section>
 
@@ -204,12 +308,13 @@ Operated by HiveHack cybersecurity specialists
 
 <div class="container">
 
+
 <section id="nis2">
 
-<h2>NIS2 și securitatea cibernetică</h2>
+<h2>Conformitate NIS2</h2>
 
 <p>
-Directiva NIS2 introduce cerințe extinse privind managementul riscurilor de securitate cibernetică pentru organizațiile din sectoarele esențiale și importante.
+Directiva NIS2 introduce cerințe extinse privind managementul riscurilor de securitate cibernetică pentru organizațiile din sectoare esențiale și importante.
 </p>
 
 <div class="info">
@@ -218,10 +323,10 @@ Directiva NIS2 introduce cerințe extinse privind managementul riscurilor de sec
 
 <ul>
 <li>managementul riscurilor de securitate cibernetică</li>
-<li>identificarea și gestionarea vulnerabilităților</li>
-<li>testarea periodică a sistemelor informatice</li>
+<li>implementarea politicilor și procedurilor de securitate</li>
 <li>monitorizarea și raportarea incidentelor</li>
-<li>evaluarea riscurilor din lanțul de aprovizionare</li>
+<li>evaluarea periodică a securității sistemelor informatice</li>
+<li>managementul riscurilor din lanțul de aprovizionare</li>
 </ul>
 
 </div>
@@ -236,64 +341,35 @@ Directiva NIS2 introduce cerințe extinse privind managementul riscurilor de sec
 
 <div class="services">
 
-<div class="card">Testare de penetrare aplicații web și API</div>
-<div class="card">Evaluarea securității infrastructurii IT</div>
-<div class="card">Evaluări securitate cloud</div>
-<div class="card">Red Team exercises</div>
-<div class="card">Evaluări vulnerabilități</div>
-<div class="card">Evaluări tehnice pentru conformitate NIS2</div>
-
+<div class="card">
+<b>vCISO / Reprezentant NIS2</b><br>
+Suport strategic pentru managementul securității cibernetice și coordonarea conformității NIS2.
 </div>
 
-</section>
-
-
-
-<section>
-
-<h2>Sectoare vizate de NIS2</h2>
-
-<div class="info">
-
-<ul>
-<li>Energie</li>
-<li>Transport</li>
-<li>Sector bancar și financiar</li>
-<li>Sănătate</li>
-<li>Infrastructură digitală</li>
-<li>Furnizori IT și servicii cloud</li>
-<li>Administrație publică</li>
-</ul>
-
+<div class="card">
+<b>Implementare NIS2</b><br>
+Dezvoltarea politicilor, procedurilor și controalelor necesare pentru alinierea la cerințele directivei.
 </div>
 
-</section>
+<div class="card">
+<b>Audit de securitate NIS2</b><br>
+Evaluarea nivelului de conformitate și identificarea gap-urilor de securitate.
+</div>
 
+<div class="card">
+<b>Testare de penetrare</b><br>
+Simularea atacurilor reale pentru identificarea vulnerabilităților tehnice.
+</div>
 
+<div class="card">
+<b>Evaluări vulnerabilități</b><br>
+Identificarea și prioritizarea vulnerabilităților din infrastructura IT și aplicații.
+</div>
 
-<section id="faq">
-
-<h2>Întrebări frecvente despre NIS2</h2>
-
-<div class="info">
-
-<b>Ce este directiva NIS2?</b>
-
-<p>
-NIS2 este directiva europeană privind securitatea rețelelor și sistemelor informatice.
-</p>
-
-<b>Ce organizații sunt vizate?</b>
-
-<p>
-Organizațiile din energie, transport, sănătate, infrastructură digitală, sector financiar și administrație publică.
-</p>
-
-<b>Este necesară testarea de penetrare?</b>
-
-<p>
-Evaluările tehnice precum testarea de penetrare și scanările de vulnerabilități ajută la identificarea riscurilor tehnice.
-</p>
+<div class="card">
+<b>Evaluări securitate furnizori</b><br>
+Analiza riscurilor cibernetice din lanțul de aprovizionare.
+</div>
 
 </div>
 
@@ -308,28 +384,10 @@ Evaluările tehnice precum testarea de penetrare și scanările de vulnerabilit�
 <p>Pentru solicitări privind servicii de securitate cibernetică:</p>
 
 <div class="email">
+<a href="mailto:contact@hivehack.tech?subject=Solicitare%20servicii%20securitate%20cibernetica">
 contact@hivehack.tech
+</a>
 </div>
-
-</section>
-
-
-
-<section style="margin-top:70px;color:#9aa4af;font-size:15px">
-
-<h2>Audit NIS2 și testare de penetrare în România</h2>
-
-<p>
-Organizațiile din România trebuie să implementeze măsuri adecvate de management al riscurilor de securitate cibernetică pentru a respecta cerințele NIS2.
-</p>
-
-<p>
-Testarea de penetrare permite identificarea vulnerabilităților în aplicații web, infrastructuri IT și medii cloud.
-</p>
-
-<p>
-Serviciile oferite prin PenetrationTesting.ro sunt orientate către organizațiile care doresc să își îmbunătățească securitatea cibernetică.
-</p>
 
 </section>
 
@@ -340,7 +398,7 @@ Serviciile oferite prin PenetrationTesting.ro sunt orientate către organizații
 © PenetrationTesting.ro
 
 <p>
-Audit NIS2 • Testare de penetrare • Evaluare vulnerabilități • Servicii de securitate cibernetică în România
+vCISO • Implementare NIS2 • Audit NIS2 • Testare de penetrare • Securitate cibernetică România
 </p>
 
 </footer>
